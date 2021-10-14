@@ -1,7 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2003 by Matthias H. Hennig                              *
  *   hennig@cn.stir.ac.uk                                                  *
- *   Copyright (C) 2005-2017 by Bernd Porr                                 *
+ *   Copyright (C) 2005-2021 by Bernd Porr                                 *
  *   mail@berndporr.me.uk                                                  *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -125,7 +125,7 @@ MainWindow::MainWindow( QWidget *parent ) :
   // 50Hz or 60Hz mains notch filter
   iirnotch = new Iir::Butterworth::BandStop<IIRORDER>;
   assert( iirnotch != NULL );
-  iirnotch->setup (IIRORDER, sampling_rate, NOTCH_F, NOTCH_F/10.0);
+  iirnotch->setup (sampling_rate, NOTCH_F, NOTCH_F/10.0);
 
   /* start the command */
   ret = comedi_command(dev, &comediCommand);
